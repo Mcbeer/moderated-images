@@ -1,6 +1,6 @@
 import { SQSEvent } from "aws-lambda";
 import { safeParseJson } from "../Core/Utils/JSON";
-import { ProjectImage } from "../Project/Types";
+import { ProjectImage } from "../Core/Types";
 import { perhaps } from "../Core/Utils/Promise";
 import { ddbDocClient } from "../Core/DynamoDB";
 import { PutCommand } from "@aws-sdk/lib-dynamodb";

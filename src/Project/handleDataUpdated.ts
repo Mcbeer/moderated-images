@@ -1,5 +1,5 @@
 import { DynamoDBStreamEvent } from "aws-lambda";
-import { Project, ProjectImage } from "./Types";
+import { Project, ProjectImage } from "../Core/Types";
 import {
   EventBridgeClient,
   PutEventsCommand,

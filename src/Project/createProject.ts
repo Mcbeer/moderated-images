@@ -4,7 +4,7 @@ import { randomUUID } from "crypto";
 import { ddbDocClient } from "../Core/DynamoDB";
 import { PutCommand } from "@aws-sdk/lib-dynamodb";
 import { perhaps } from "../Core/Utils/Promise";
-import { Project, ProjectStatus } from "./Types";
+import { Project, ProjectStatus } from "../Core/Types";
 
 export const handler = async (event: APIGatewayProxyEvent) => {
   // Get the user id from the event

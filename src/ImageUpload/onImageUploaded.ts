@@ -9,7 +9,7 @@ import {
   PutEventsCommand,
 } from "@aws-sdk/client-eventbridge";
 import { perhaps, withRetry } from "../Core/Utils/Promise";
-import { ProjectImage } from "../Project/Types";
+import { ProjectImage } from "../Core/Types";
 import { randomUUID } from "crypto";
 
 const client = new S3Client({

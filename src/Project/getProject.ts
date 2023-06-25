@@ -2,7 +2,7 @@ import {
   APIGatewayEventRequestContext,
   APIGatewayProxyEvent,
 } from "aws-lambda";
-import { Project, ProjectImage, ProjectWithImages } from "./Types";
+import { Project, ProjectImage, ProjectWithImages } from "../Core/Types";
 import { ddbDocClient } from "../Core/DynamoDB";
 import { QueryCommand } from "@aws-sdk/client-dynamodb";
 import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
