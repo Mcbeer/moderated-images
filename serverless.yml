@@ -1,0 +1,39 @@
+service: moderated-file-uploading
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  httpApi:
+    authorizers:
+      customAuthorizer:
+        type: request
+        functionName: authorizerFunc
+
+custom:
+  bucketName: ${self.service}-images-${opt:stage, self:provider.stage}
+
+functions:
+  getPresignedUrl:
+    handler: dist/Functions/getPresignedUrl.handler
+    events:
+      - httpApi:
+          method: get
+          path: /presignedUrl
+          authorizer:
+            name: customAuthorizer
+
+  moderateImage:
+    handler: dist/Functions/moderateImage.handler
+    events:
+      - s3:
+          bucket: photos
+          event: s3:ObjectCreated:*
+          rules:
+            - prefix: RAW/
+
+  authorizerFunc:
+    handler: dist/Functions/authorizer.handler
+
+resources:
+  - ${file(resources/s3.yml)}

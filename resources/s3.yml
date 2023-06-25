@@ -1,0 +1,12 @@
+Resources:
+  S3BucketPhotos:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: ${ self:custom.bucketName }
+      # This deletes the raw photos after 1 day
+      LifecycleConfiguration:
+        Rules:
+          - Id: DeleteRawPhotos
+            Status: Enabled
+            ExpirationInDays: 1
+            Prefix: RAW/
