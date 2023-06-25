@@ -35,5 +35,7 @@ functions:
   authorizerFunc:
     handler: dist/Functions/authorizer.handler
 
+  # The other functions would be defined here
+
 resources:
   - ${file(resources/s3.yml)}
