@@ -15,7 +15,7 @@ custom:
 
 functions:
   getPresignedUrl:
-    handler: dist/Functions/getPresignedUrl.handler
+    handler: dist/Image/getPresignedUrl.handler
     events:
       - httpApi:
           method: get
@@ -23,8 +23,8 @@ functions:
           authorizer:
             name: customAuthorizer
 
-  moderateImage:
-    handler: dist/Functions/moderateImage.handler
+  onImageUploaded:
+    handler: dist/Image/onImageUploaded.handler
     events:
       - s3:
           bucket: photos
