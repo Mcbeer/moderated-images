@@ -40,12 +40,13 @@ export const handler = async (
 ): Promise<APIGatewayAuthorizerResult> => {
   // Call the authentication service
   // If the user is authenticated, return an IAM policy with allow
-  // If the user is not authenticated, return n IAM pocliy with deny
+  // If the user is not authenticated, return an IAM pocliy with deny
 
   if (event.type !== "REQUEST") {
     return denyRequest(event.methodArn);
   }
 
+  // In the real world, hopefully tokes are placed in an HTTP cookie, instead of query string params
   const isAuthorized = await mockAuthService(
     event.queryStringParameters.userToken,
     event.queryStringParameters.projectId
